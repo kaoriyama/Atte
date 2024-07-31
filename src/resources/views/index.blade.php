@@ -5,32 +5,25 @@
 @endsection
 
 @section('content')
-<div class="attendance__alert">
-  // メッセージ機能
-</div>
-
 <div class="attendance__content">
-  <div class="attendance__panel">
-    <form class="attendance__button">
-      <button class="attendance__button-submit" type="submit">勤務開始</button>
-    </form>
-    <form class="attendance__button">
-      <button class="attendance__button-submit" type="submit">勤務終了</button>
-    </form>
-  </div>
-  <div class="attendance-table">
-    <table class="attendance-table__inner">
-      <tr class="attendance-table__row">
-        <th class="attendance-table__header">名前</th>
-        <th class="attendance-table__header">開始時間</th>
-        <th class="attendance-table__header">終了時間</th>
-      </tr>
-      <tr class="attendance-table__row">
-        <td class="attendance-table__item">サンプル太郎</td>
-        <td class="attendance-table__item">サンプル</td>
-        <td class="attendance-table__item">サンプル</td>
-      </tr>
-    </table>
-  </div>
+    <h1 class="attendance__greeting">{{ Auth::user()->name }}さんお疲れ様です！</h1>
+    <div class="attendance__panel">
+        <form action="{{ route('attendance.start-work') }}" method="POST" class="attendance__button">
+            @csrf
+            <button type="submit" class="attendance__button-submit" {{ $attendance && $attendance->start_time ? 'disabled' : '' }}>勤務開始</button>
+        </form>
+        <form action="{{ route('attendance.end-work') }}" method="POST" class="attendance__button">
+            @csrf
+            <button type="submit" class="attendance__button-submit" {{ !$attendance || !$attendance->start_time || $attendance->end_time ? 'disabled' : '' }}>勤務終了</button>
+        </form>
+        <form action="{{ route('attendance.start-break') }}" method="POST" class="attendance__button">
+            @csrf
+            <button type="submit" class="attendance__button-submit" {{ !$attendance || !$attendance->start_time || $attendance->end_time || ($attendance->rests()->whereNull('break_end')->exists()) ? 'disabled' : '' }}>休憩開始</button>
+        </form>
+        <form action="{{ route('attendance.end-break') }}" method="POST" class="attendance__button">
+            @csrf
+            <button type="submit" class="attendance__button-submit" {{ !$attendance || !$attendance->start_time || $attendance->end_time || !($attendance->rests()->whereNull('break_end')->exists()) ? 'disabled' : '' }}>休憩終了</button>
+        </form>
+    </div>
 </div>
 @endsection

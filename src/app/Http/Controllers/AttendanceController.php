@@ -4,40 +4,83 @@ namespace App\Http\Controllers;
 
 use App\Models\AttendanceStatus;
 use Illuminate\Http\Request;
+use App\Models\Attendance;
+use App\Models\Rest;
 
 class AttendanceController extends Controller
 {
     public function index()
     {
-        $status = AttendanceStatus::where('user_id', auth()->id())->firstOrCreate(['user_id' => auth()->id()]);
-        return view('attendance.index', compact('status'));
+        $today = now()->toDateString();
+        $attendance = Attendance::where('user_id', auth()->id())
+            ->where('date', $today)
+            ->first();
+        
+        return view('index', compact('attendance'));
     }
 
     public function startWork()
     {
-        $status = AttendanceStatus::where('user_id', auth()->id())->first();
-        $status->update(['is_working' => true, 'is_on_break' => false]);
-        return redirect()->route('attendance.index');
+    $today = now()->toDateString();
+    $attendance = Attendance::where('user_id', auth()->id())
+        ->whereDate('date', $today)
+        ->first();
+
+    if (!$attendance) {
+        Attendance::create([
+            'user_id' => auth()->id(),
+            'date' => $today,
+            'start_time' => now()->toTimeString()
+        ]);
+    } elseif (!$attendance->start_time) {
+        $attendance->update(['start_time' => now()->toTimeString()]);
+    }
+
+    return redirect()->route('attendance.index');
     }
 
     public function endWork()
     {
-        $status = AttendanceStatus::where('user_id', auth()->id())->first();
-        $status->update(['is_working' => false, 'is_on_break' => false]);
+        $today = now()->toDateString();
+        $attendance = Attendance::where('user_id', auth()->id())
+            ->where('date', $today)
+            ->first();
+        
+        if ($attendance) {
+            $attendance->update(['end_time' => now()->toTimeString()]);
+        }
+        
         return redirect()->route('attendance.index');
     }
 
     public function startBreak()
     {
-        $status = AttendanceStatus::where('user_id', auth()->id())->first();
-        $status->update(['is_on_break' => true]);
+        $today = now()->toDateString();
+        $attendance = Attendance::where('user_id', auth()->id())
+            ->where('date', $today)
+            ->first();
+        
+        if ($attendance) {
+            $attendance->rests()->create(['break_start' => now()->toTimeString()]);
+        }
+        
         return redirect()->route('attendance.index');
     }
 
     public function endBreak()
     {
-        $status = AttendanceStatus::where('user_id', auth()->id())->first();
-        $status->update(['is_on_break' => false]);
+        $today = now()->toDateString();
+        $attendance = Attendance::where('user_id', auth()->id())
+            ->where('date', $today)
+            ->first();
+        
+        if ($attendance) {
+            $lastRest = $attendance->rests()->whereNull('break_end')->latest()->first();
+            if ($lastRest) {
+                $lastRest->update(['break_end' => now()->toTimeString()]);
+            }
+        }
+        
         return redirect()->route('attendance.index');
     }
 }

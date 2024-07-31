@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Route::middleware('auth')->group(function () {
     });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
+    Route::get('/', [AttendanceController::class, 'index'])->name('attendance.index');
     Route::post('/attendance/start-work', [AttendanceController::class, 'startWork'])->name('attendance.start-work');
     Route::post('/attendance/end-work', [AttendanceController::class, 'endWork'])->name('attendance.end-work');
     Route::post('/attendance/start-break', [AttendanceController::class, 'startBreak'])->name('attendance.start-break');

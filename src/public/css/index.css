@@ -6,22 +6,22 @@ body {
 }
 
 .attendance__content {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
 
 .attendance__greeting {
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 24px;
+    margin-bottom: 50px;
+    font-size: 28px;
     color: #333;
 }
 
 .attendance__panel {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 30px;
 }
 
 .attendance__button {
@@ -30,39 +30,23 @@ body {
 
 .attendance__button-submit {
     width: 100%;
-    padding: 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
+    padding: 30px;
+    font-size: 24px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: white;
+    color: #333;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.attendance__button:nth-child(1) .attendance__button-submit {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.attendance__button:nth-child(2) .attendance__button-submit {
-    background-color: #f44336;
-    color: white;
-}
-
-.attendance__button:nth-child(3) .attendance__button-submit {
-    background-color: #2196F3;
-    color: white;
-}
-
-.attendance__button:nth-child(4) .attendance__button-submit {
-    background-color: #FF9800;
-    color: white;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .attendance__button-submit:hover {
-    opacity: 0.8;
+    background-color: #f8f8f8;
 }
 
 .attendance__button-submit:disabled {
-    background-color: #cccccc;
+    background-color: #f0f0f0;
+    color: #999;
+    border-color: #999;
     cursor: not-allowed;
 }
