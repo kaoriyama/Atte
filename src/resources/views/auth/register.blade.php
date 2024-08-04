@@ -59,6 +59,7 @@
     </div>
   </form>
   <div class="login__link">
+    <p>アカウントをお持ちの方はこちら</p>
     <a class="login__button-submit" href="/login">ログインの方はこちら</a>
   </div>
 </div>

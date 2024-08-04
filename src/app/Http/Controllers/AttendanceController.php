@@ -86,20 +86,21 @@ class AttendanceController extends Controller
     }
 
     public function showDate(Request $request)
-{
+    {
     $date = $request->input('date', now()->toDateString());
     $carbonDate = Carbon::parse($date);
 
     $attendances = Attendance::with(['user', 'rests'])
         ->whereDate('date', $date)
-        ->get()
-        ->map(function ($attendance) {
-            $attendance->total_break_time = $this->calculateTotalBreakTime($attendance);
-            $attendance->working_hours = $this->calculateWorkingHours($attendance);
-            return $attendance;
-        });
+        ->paginate(5); // 1ページあたり5件表示
 
-    return view('attendance', compact('attendances', 'date', 'carbonDate'));
+    $attendances->getCollection()->transform(function ($attendance) {
+        $attendance->total_break_time = $this->calculateTotalBreakTime($attendance);
+        $attendance->working_hours = $this->calculateWorkingHours($attendance);
+        return $attendance;
+    });
+
+    return view('attendance', compact('attendances', 'carbonDate'));
     }
 
     private function calculateTotalBreakTime($attendance)

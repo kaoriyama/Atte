@@ -32,7 +32,7 @@
 }
 
 .header-nav__link {
-    color: #fff;
+    color: #000000;
     text-decoration: none;
 }
 
@@ -99,4 +99,8 @@ body {
     background-color: #fff;
     padding: 20px 0;
     text-align: center;
+}
+
+ul li {
+    flex: 1 0 auto;
 }

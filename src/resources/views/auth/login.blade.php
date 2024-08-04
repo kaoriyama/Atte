@@ -40,6 +40,7 @@
     </div>
   </form>
   <div class="register__link">
+    <p>アカウントをお持ちでない方はこちら</p>
     <a class="register__button-submit" href="/register">会員登録</a>
   </div>
 </div>
