@@ -8,7 +8,7 @@
 <div class="attendance__content">
     <div class="date-navigation">
         <a href="{{ route('attendance', ['date' => $carbonDate->copy()->subDay()->toDateString()]) }}" class="prev">&lt;</a>
-        <h2>{{ $carbonDate }}</h2>
+        <h2>{{ $carbonDate->format('Y-m-d') }}</h2>
         <a href="{{ route('attendance', ['date' => $carbonDate->copy()->addDay()->toDateString()]) }}" class="next">&gt;</a>
     </div>
 
