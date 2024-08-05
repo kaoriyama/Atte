@@ -37,8 +37,6 @@
     text-align: center;
 }
 
-
-
 .pagination {
     margin-top: 20px;
     display: flex;
@@ -53,10 +51,11 @@
     display: flex;
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 .pagination li {
-    margin: 0 5px;
+    margin: 0 2px;
 }
 
 .pagination a,
@@ -67,6 +66,11 @@
     border: 1px solid #007bff;
     color: #007bff;
     border-radius: 3px;
+}
+
+.pagination .disabled span {
+    color: #6c757d;
+    border-color: #6c757d;
 }
 
 .pagination .active span {

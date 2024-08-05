@@ -92,7 +92,7 @@ class AttendanceController extends Controller
 
     $attendances = Attendance::with(['user', 'rests'])
         ->whereDate('date', $date)
-        ->paginate(5); // 1ページあたり5件表示
+        ->paginate(5)->onEachSide(1);
 
     $attendances->getCollection()->transform(function ($attendance) {
         $attendance->total_break_time = $this->calculateTotalBreakTime($attendance);

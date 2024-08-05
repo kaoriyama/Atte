@@ -37,7 +37,7 @@
 
     <div class="pagination">
         @if($attendances instanceof \Illuminate\Pagination\LengthAwarePaginator)
-            {{ $attendances->links() }}
+            {{ $attendances->links('pagination::custom') }}
         @endif
     </div>
 </div>
