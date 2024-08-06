@@ -104,3 +104,60 @@ body {
 ul li {
     flex: 1 0 auto;
 }
+
+.header-utilities {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-utilities nav {
+    margin-left: auto;
+    /* navを右寄せにする */
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+}
+
+.header-nav__item {
+    margin-left: 20px;
+    /* 各項目の左側に余白を設定 */
+}
+
+.header-nav__item:first-child {
+    margin-left: 0;
+    /* 最初の項目の左マージンを削除 */
+}
+
+.header-utilities {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-utilities nav {
+    margin-left: auto;
+    /* navを右寄せにする */
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+}
+
+.header-nav__item {
+    margin-left: 20px;
+    /* 各項目の左側に余白を設定 */
+}
+
+.header-nav__item:first-child {
+    margin-left: 0;
+    /* 最初の項目の左マージンを削除 */
+}
+
+/* 不要になった設定を削除 */
+.header-utilities nav {
+    width: auto;
+}
