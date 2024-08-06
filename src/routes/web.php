@@ -30,3 +30,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::get('/attendance', [AttendanceController::class, 'showDate'])->name('attendance');
+
+Route::get('/attendance/user/{userId}', [AttendanceController::class, 'showUserAttendance'])->name('attendance.user');
+
+Route::get('/users', [AttendanceController::class, 'userList'])->name('users.list');

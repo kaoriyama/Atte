@@ -6,7 +6,9 @@ use App\Models\AttendanceStatus;
 use Illuminate\Http\Request;
 use App\Models\Attendance;
 use App\Models\Rest;
+use App\Models\User;
 use Carbon\Carbon;
+
 
 class AttendanceController extends Controller
 {
@@ -133,4 +135,32 @@ class AttendanceController extends Controller
         $workingSeconds = $totalWorkTime - $totalBreakTime;
         return gmdate('H:i:s', max(0, $workingSeconds));
     }
+
+    public function showUserAttendance(Request $request, $userId)
+    {
+    $user = User::findOrFail($userId);
+    $date = $request->input('date', now()->startOfMonth());
+    $endDate = Carbon::parse($date)->endOfMonth();
+
+    $attendances = Attendance::where('user_id', $userId)
+        ->whereBetween('date', [$date, $endDate])
+        ->orderBy('date')
+        ->get();
+
+    $attendances->transform(function ($attendance) {
+        $attendance->total_break_time = $this->calculateTotalBreakTime($attendance);
+        $attendance->working_hours = $this->calculateWorkingHours($attendance);
+        return $attendance;
+    });
+
+    return view('user_attendance', compact('user', 'attendances', 'date'));
+    }
+
+
+    public function userList()
+    {
+        $users = User::all();
+        return view('user_list', compact('users'));
+    }
+
 }

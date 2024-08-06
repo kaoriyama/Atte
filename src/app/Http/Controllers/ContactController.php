@@ -58,4 +58,5 @@ class AttendanceController extends Controller
         $workingSeconds = $totalWorkTime - $totalBreakTime;
         return gmdate('H:i:s', max(0, $workingSeconds));
     }
+
 }
