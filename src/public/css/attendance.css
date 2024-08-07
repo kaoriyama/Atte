@@ -1,7 +1,9 @@
 .attendance__content {
     border-radius: 10px;
-    padding: 30px;
-    max-width: 1230px;
+    padding: 50px 30px;
+    /* パディングを増やす */
+    max-width: 1500px;
+    /* 最大幅を増やす */
     margin: 0 auto;
 }
 
@@ -9,36 +11,45 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    /* 下マージンを増やす */
 }
 
 .date-navigation a {
     text-decoration: none;
     color: #007bff;
-    font-size: 24px;
-    margin: 0 20px;
+    font-size: 28px;
+    /* フォントサイズを大きくする */
+    margin: 0 25px;
+    /* マージンを増やす */
 }
 
 .date-navigation h2 {
     margin: 0;
-    font-size: 24px;
+    font-size: 32px;
+    /* フォントサイズを大きくする */
 }
 
 .attendance__table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 30px;
+    /* 上マージンを増やす */
 }
 
 .attendance__table th,
 .attendance__table td {
     border-bottom: 1px solid #9b9b9b;
-    padding: 12px;
+    padding: 15px;
+    /* パディングを増やす */
     text-align: center;
+    font-size: 16px;
+    /* フォントサイズを大きくする */
 }
 
 .pagination {
-    margin-top: 20px;
+    margin-top: 30px;
+    /* 上マージンを増やす */
     display: flex;
     justify-content: center;
 }
@@ -55,17 +66,21 @@
 }
 
 .pagination li {
-    margin: 0 2px;
+    margin: 0 3px;
+    /* マージンを少し増やす */
 }
 
 .pagination a,
 .pagination span {
     display: inline-block;
-    padding: 5px 10px;
+    padding: 8px 12px;
+    /* パディングを増やす */
     text-decoration: none;
     border: 1px solid #007bff;
     color: #007bff;
     border-radius: 3px;
+    font-size: 16px;
+    /* フォントサイズを大きくする */
 }
 
 .pagination .disabled span {

@@ -1,66 +1,110 @@
 .login-form__content {
     margin: 0 auto;
-    padding: 30px 15px;
-    max-width: 1230px;
+    padding: 50px 20px;
+    /* パディングを増やす */
+    max-width: 1500px;
+    /* 最大幅を増やす */
 }
 
 .login-form__heading {
-    margin-top: 100px;
-    margin-bottom: 20px;
+    margin-top: 50px;
+    /* 上マージンを減らす */
+    margin-bottom: 40px;
+    /* 下マージンを増やす */
     text-align: center;
+}
+
+.login-form__heading h2 {
+    font-size: 36px;
+    /* 見出しのフォントサイズを大きくする */
 }
 
 .form {
     margin: 0 auto;
-    width: 25%;
+    width: 40%;
+    /* フォームの幅を増やす */
+    max-width: 500px;
+    /* 最大幅を設定 */
     text-align: center;
 }
 
 .form__group {
-    margin-bottom: 5px;
+    margin-bottom: 20px;
+    /* グループ間の余白を増やす */
 }
 
 .form__group-title {
     text-align: left;
+    font-size: 18px;
+    /* ラベルのフォントサイズを大きくする */
+    margin-bottom: 5px;
 }
 
 .form__error {
     height: 20px;
     color: #ff0000;
     text-align: left;
+    font-size: 14px;
 }
 
 .form__input--text input {
-    padding: 10px;
+    padding: 15px;
+    /* パディングを増やす */
     width: 100%;
-    height: 40px;
+    height: 50px;
+    /* 高さを増やす */
     border: 1px solid #ddd;
-    border-radius: 3px;
-
+    border-radius: 5px;
+    /* 角を少し丸くする */
+    font-size: 16px;
+    /* フォントサイズを大きくする */
     appearance: none;
 }
 
 .form__button {
-    margin-top: 20px;
+    margin-top: 30px;
+    /* 上マージンを増やす */
 }
 
 .form__button-submit {
-    padding: 10px;
+    padding: 15px;
+    /* パディングを増やす */
     width: 100%;
-    height: 50px;
+    height: 60px;
+    /* 高さを増やす */
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
+    /* 角を少し丸くする */
     background: #214BE0;
     color: #fff;
     cursor: pointer;
+    font-size: 18px;
+    /* フォントサイズを大きくする */
+    transition: background-color 0.3s;
+}
+
+.form__button-submit:hover {
+    background-color: #1a3cb3;
+    /* ホバー時の色を少し暗く */
 }
 
 .register__link {
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
 }
 
 .register__link p {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    /* 下マージンを増やす */
     color: #afaeae;
+    font-size: 16px;
+    /* フォントサイズを大きくする */
+}
+
+.register__button-submit {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #214BE0;
+    text-decoration: none;
 }

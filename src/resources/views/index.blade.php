@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="attendance__content">
-    <h1 class="attendance__greeting">{{ Auth::user()->name }}さんお疲れ様です！</h1>
+    <h2 class="attendance__greeting">{{ Auth::user()->name }}さんお疲れ様です！</h2>
     <div class="attendance__panel">
         <form action="{{ route('attendance.start-work') }}" method="POST" class="attendance__button">
             @csrf

@@ -6,22 +6,26 @@ body {
 }
 
 .attendance__content {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px 20px;
+    /* 上下のパディングを増やす */
 }
 
 .attendance__greeting {
     text-align: center;
-    margin-bottom: 50px;
-    font-size: 28px;
+    margin-bottom: 60px;
+    /* マージンを増やす */
+    font-size: 32px;
+    /* フォントサイズを大きくする */
     color: #333;
 }
 
 .attendance__panel {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 40px;
+    /* ギャップを増やす */
 }
 
 .attendance__button {
@@ -30,10 +34,14 @@ body {
 
 .attendance__button-submit {
     width: 100%;
-    padding: 30px;
-    font-size: 24px;
-    border: 2px solid #333;
-    border-radius: 10px;
+    padding: 50px 30px;
+    /* パディングを増やす */
+    font-size: 28px;
+    /* フォントサイズを大きくする */
+    border: 2px solid #ddd;
+    /* ボーダーの色を薄くする */
+    border-radius: 5px;
+    /* 角を少し丸くする */
     background-color: white;
     color: #333;
     cursor: pointer;
@@ -46,6 +54,9 @@ body {
 
 .attendance__button-submit:disabled {
     color: #999;
-    border-color: #999;
+    border-color: #eee;
+    /* 無効時のボーダーをさらに薄くする */
+    background-color: #f8f8f8;
+    /* 無効時の背景色を設定 */
     cursor: not-allowed;
 }

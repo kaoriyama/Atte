@@ -1,0 +1,66 @@
+.user-list__content {
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 1230px;
+    margin: 0 auto;
+}
+
+.user-list__content h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.user-list__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.user-list__table th,
+.user-list__table td {
+    border-bottom: 1px solid #9b9b9b;
+    padding: 12px;
+    text-align: left;
+}
+
+.user-list__table th {
+    background-color: #f8f9fa;
+}
+
+.user-list__table td:last-child {
+    text-align: center;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* レスポンシブデザイン用 */
+@media (max-width: 768px) {
+    .user-list__content {
+        padding: 15px;
+    }
+
+    .user-list__table {
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        padding: 6px 10px;
+    }
+}
