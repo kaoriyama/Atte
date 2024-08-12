@@ -26,5 +26,6 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         //
+        config(['auth.providers.users.model' => \App\Models\User::class]);
     }
 }

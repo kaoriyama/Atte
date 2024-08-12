@@ -37,7 +37,7 @@
 
     <div class="pagination">
         @if($attendances instanceof \Illuminate\Pagination\LengthAwarePaginator)
-            {{ $attendances->links('pagination::custom') }}
+        {{ $attendances->appends(['date' => $carbonDate->toDateString()])->links('pagination::custom') }}
         @endif
     </div>
 </div>
