@@ -38,6 +38,17 @@
             </li>
           </ul>
         </nav>
+        @elseif (Request::is('email/verify'))
+        <nav>
+          <ul class="header-nav">
+            <li class="header-nav__item">
+              <form class="form" action="/logout" method="post">
+                @csrf
+                <button class="header-nav__button" style="cursor: pointer;"> 戻る </button>
+              </form>
+            </li>
+          </ul>
+        </nav>
         @endif
       </div>
     </div>
