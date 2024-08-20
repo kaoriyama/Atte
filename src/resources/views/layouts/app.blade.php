@@ -18,6 +18,7 @@
         <a class="header__logo" href="/">
           Atte
         </a>
+        @if (Auth::check() && !Request::is('email/verify'))
         <nav>
           <ul class="header-nav">
             <li class="header-nav__item">
@@ -37,6 +38,7 @@
             </li>
           </ul>
         </nav>
+        @endif
       </div>
     </div>
   </header>
