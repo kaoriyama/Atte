@@ -62,8 +62,5 @@
     <p>アカウントをお持ちの方はこちら</p>
     <a class="login__button-submit" href="/login">ログインの方はこちら</a>
   </div>
-  <div class="email-verification__notice">
-    <p>※ 登録後、確認メールが送信されます。メール内のリンクをクリックして、登録を完了してください。</p>
-  </div>
 </div>
 @endsection

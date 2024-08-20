@@ -18,8 +18,9 @@ use Illuminate\Http\Request;
 |
 */
 
+
 // 認証済みユーザー用ルート
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [AttendanceController::class, 'index'])->name('attendance.index');
     Route::post('/attendance/start-work', [AttendanceController::class, 'startWork'])->name('attendance.start-work');
     Route::post('/attendance/end-work', [AttendanceController::class, 'endWork'])->name('attendance.end-work');
@@ -28,6 +29,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/attendance', [AttendanceController::class, 'showDate'])->name('attendance');
     Route::get('/attendance/user/{userId}', [AttendanceController::class, 'showUserAttendance'])->name('attendance.user');
     Route::get('/users', [AttendanceController::class, 'userList'])->name('users.list');
+});
+
+Route::middleware(['verified'])->group(function(){
+    return view('auth.verify-email');
 });
 
 // メール認証関連ルート

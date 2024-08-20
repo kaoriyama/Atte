@@ -12,10 +12,6 @@
     
     <div class="month-navigation">
         <h2>{{ $date->format('Y年m月') }}</h2>
-        <form class="month-form" action="{{ route('attendance.user', $user->id) }}" method="GET">
-            <input type="month" name="date" value="{{ $date->format('Y-m') }}">
-            <button type="submit">月を変更</button>
-        </form>
     </div>
 
     <div class="table-container">
